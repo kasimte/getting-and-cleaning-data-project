@@ -1,26 +1,20 @@
 # run_analysis.R
 
-# The code should have a file run_analysis.R in the main directory that 
-# can be run as long as the Samsung data is in your working directory. 
-# The output should be the tidy data set you submitted for part 1. 
-# You should include a README.md in the repo describing how the script works. 
+# This R script demonstrates reading in a dataset, cleaning it up,
+# and outputting it in a tidy format ("tidy.txt" to the working directory).
 
-# You should create one R script called run_analysis.R that does the following. 
-# 1 Merges the training and the test sets to create one data set.
-# 2 Extracts only the measurements on the mean and standard deviation 
-#   for each measurement. 
-# 3 Uses descriptive activity names to name the activities in the data set
-# 4 Appropriately labels the data set with descriptive activity names. 
-# 5 Creates a second, independent tidy data set with the average of each 
-#   variable for each activity and each subject. 
+# It requires that the Samsung data from 
+#
+# https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+# 
+# be unzipped and in the working directory (in a directory named "UCI HAR Dataset",
+# as in the compressed file).
 
-# Set working directory.
-# getwd()
-# setwd("/Users/Kasim/Documents/Coursera/DataScience/getting-and-cleaning-data/getting-and-cleaning-data-project/UCI HAR Dataset/")
-
+# Enter the dataset directory.
 setwd("./UCI HAR Dataset/")
-# Install and load packages.
-install.packages("reshape2")
+
+# Load necessary packages
+# install.packages("reshape2")
 library(reshape2)
 
 ## 1. Merge the training and the test sets to create one data set.
@@ -83,5 +77,5 @@ tidy <- dcast(melted, subject + activity ~ variable, mean)
 
 # Output our tidy dataset.
 setwd("../")
-write.csv(tidy, "tidy.csv")
+write.table(tidy, "tidy.txt")
 
