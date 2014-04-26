@@ -51,5 +51,5 @@ from the raw data. So, for example, please see the following example:
 
 This shows the first three columns of the first row. The subject was
 1, the activity was walking, and the mean of all the
-"tBodyAcc-mean()-X" variable values from the raw dataset was
-0.2773308.
+"tBodyAcc-mean()-X" variable values for this subject and activity
+combination from the raw dataset was 0.2773308.
